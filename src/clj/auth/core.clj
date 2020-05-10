@@ -24,13 +24,7 @@ Please click the following link to complete the process:\n")
   (when (seq (query-email email))
     (let [user-data (assoc user-data :exp (time/plus (time/now) (time/seconds 600)))
           token (jwt/sign user-data secret)]
-
-      ;;todo
-      (println (str message url token))
-
-      (str message url token)
-
-      )))
+      (println (str message url token)))))
 
 (defn verify-password [{:keys [token password]}]
   (try
